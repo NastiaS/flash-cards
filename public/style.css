@@ -1,6 +1,10 @@
 * {
   box-sizing: border-box; }
 
+html, body {
+  font-family: Helvetica;
+  text-align: center; }
+
 .category-button {
   border: 1px solid black;
   background: none;
@@ -12,18 +16,24 @@
     background: gainsboro; }
 
 .flash-card {
+  position: relative;
   width: 60%;
   height: 400px;
   margin: 0 auto;
   margin-top: 40px;
   border: 1px solid black;
-  font-family: Helvetica;
   padding: 50px;
   box-shadow: 3px 4px 5px 1px #6b6b6b; }
   .flash-card h1 {
     font-size: 40px;
     text-align: center;
     margin-bottom: 40px; }
+  .flash-card h3 {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 12px;
+    color: #bababa; }
   .flash-card .flash-card-answers {
     width: 100%;
     margin: 0 auto;

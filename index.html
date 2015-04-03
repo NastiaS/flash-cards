@@ -1,32 +1,39 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Flash Cards</title>
-        <!-- We've provided some styles for you, aren't we nice? -->
-        <link rel="stylesheet" type="text/css" href="reset.css" />
-        <link rel="stylesheet" type="text/css" href="style.css" />
-    </head>
-    <body ng-app="flashCards" ng-controller="MainController">
-    	<div
-    		ng-repeat="flashCard in flashCards | orderBy : 'question'"
-    		class="flash-card">
-    	    <h1>{{ flashCard.question | uppercase }}</h1>
-    	    <ul class="flash-card-answers">
-    	    	<li
-    	    		ng-repeat="answer in flashCard.answers"
-    	    		class="flash-card-answer"
-    	    		ng-click="answerQuestion(answer, flashCard)">{{ answer.text }}</li>
-    	    </ul>
-    	    <h2
-    	    	class="answer-feedback"
-    	    	ng-class="flashCard.answeredCorrectly ? 'correct' : 'incorrect'"
-    	    	ng-show="flashCard.answered">
-    	        <span ng-show="flashCard.answeredCorrectly">Yeah, you got it right!</span>
-    	        <span ng-show="!flashCard.answeredCorrectly">Nope, you got it wrong.</span>
-    	    </h2>
-    	</div>
-    	<script src="angular.js"></script>
-    	<script src="app.js"></script>
-    	<script src="main.controller.js"></script>
-    </body>
+   <head>
+       <title>Flash Cards</title>
+       <!-- We've provided some styles for you, aren't we nice? -->
+       <link rel="stylesheet" type="text/css" href="reset.css" />
+       <link rel="stylesheet" type="text/css" href="style.css" />
+       <script src="angular.js"></script>
+       <script src="app.js"></script>
+   </head>
+   <body>
+       <div ng-app="FlashCards" ng-controller="MainController">
+        <!-- <pre>{{flashCards}}</pre> -->
+       <!--     with <pre> it is much more readable then without -->
+       <!-- another filter | json -->
+        <button class="category-button" ng-repeat="category in categories" ng-click="getCategoryCards(category)" ng-class="{active: currentCategory === category}">{{category}}</button>
+        <button class="category-button" ng-click="getCategoryCards()">Reset Button</button>
+        
+           <div class="flash-card" ng-controller="FlashCardController" ng-repeat="flashCards in flashCards | orderBy:'question'">
+
+            <h3>{{flashCards.category}}</h3>
+               <h1>{{ flashCards.question |uppercase }}</h1>
+               <ul class="flash-card-answers">
+                   <li class="flash-card-answer" ng-repeat="answer in flashCards.answers" ng-click="answerQuestion(answer.correct)">
+                       {{answer.text}}
+                   </li>
+               </ul>
+               <h2 class="answer-feedback" ng-show="answered" ng-class="{correct: answeredCorrectly,incorrect:!answeredCorrectly}">
+                    <span ng-show="answeredCorrectly">
+
+<img src="http://www.femoticons.net/images/posts/rainy_days_sunglasses.jpg" alt="You are cool" style="width:150px;height:100px">
+                        Yeah, you got it right!</span>
+                    <span ng-show="!answeredCorrectly">
+                        Nope, you got it wrong.</span>
+                </h2>
+            </div>
+        </div>
+   </body>
 </html>
