@@ -9,10 +9,14 @@
        <script src="app.js"></script>
    </head>
    <body>
-       <div ng-app="FlashCards" ng-controller="MainController">
-        <!-- <pre>{{flashCards}}</pre> -->
-       <!--     with <pre> it is much more readable then without -->
-       <!-- another filter | json -->
+       <div ng-app="FlashCards" ng-controller="StatsController" id="statistics">
+
+            <div id="scoreboard">
+                <h3>Correct: <span>{{ scores.correct }}</span></h3>
+                <h3>Incorrect: <span>{{ scores.incorrect }}</span></h3>
+            </div>
+
+       <div ng-controller="MainController">
         <button class="category-button" ng-repeat="category in categories" ng-click="getCategoryCards(category)" ng-class="{active: currentCategory === category}">{{category}}</button>
         <button class="category-button" ng-click="getCategoryCards()">Reset Button</button>
         
@@ -21,7 +25,7 @@
             <h3>{{flashCards.category}}</h3>
                <h1>{{ flashCards.question |uppercase }}</h1>
                <ul class="flash-card-answers">
-                   <li class="flash-card-answer" ng-repeat="answer in flashCards.answers" ng-click="answerQuestion(answer.correct)">
+                   <li class="flash-card-answer" ng-repeat="answer in flashCards.answers" ng-click="answerQuestion(answer)">
                        {{answer.text}}
                    </li>
                </ul>
@@ -34,6 +38,7 @@
                         Nope, you got it wrong.</span>
                 </h2>
             </div>
+           <div>
         </div>
    </body>
 </html>
