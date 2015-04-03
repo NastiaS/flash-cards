@@ -3,10 +3,15 @@
    <head>
        <title>Flash Cards</title>
        <!-- We've provided some styles for you, aren't we nice? -->
-       <link rel="stylesheet" type="text/css" href="reset.css" />
-       <link rel="stylesheet" type="text/css" href="style.css" />
-       <script src="angular.js"></script>
+       <link rel="stylesheet" type="text/css" href="/css/reset.css" />
+       <link rel="stylesheet" type="text/css" href="/css/style.css" />
+       <script src="/js/lib/angular.js"></script>
        <script src="app.js"></script>
+       <script src="/js/controllers/FlashCardController.js"></script>
+       <script src="/js/controllers/main.controller.js"></script>
+       <script src="/js/controllers/StatsController.js"></script>
+       <script src="/js/factories/FlashCardsFactory.js"></script>
+       <script src="/js/factories/ScoreFactory.js"></script>
    </head>
    <body>
        <div ng-app="FlashCards" ng-controller="StatsController" id="statistics">
