@@ -4,7 +4,3 @@ app.factory("ScoreFactory", function(){
         incorrect: 0
     };
 });
-app.controller("StatsController", function($scope, ScoreFactory){
-
-    $scope.scores = ScoreFactory;
-});

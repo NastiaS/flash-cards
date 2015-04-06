@@ -117,7 +117,7 @@ var cards = [
         category: 'Node'
     },
     {
-        question: '.then makes you think of . . .',
+        question: '.then() makes you think of . . .',
         answers: [
             { text: 'promises', correct: true },
             { text: 'callbacks', correct: false },

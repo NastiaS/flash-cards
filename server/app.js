@@ -37,7 +37,9 @@ app.get('/cards', function (req, res) {
     var modelParams = {};
 
     if (req.query.category) {
+    //query is a ? in url. Like /cards?category=Angular
     	modelParams.category = req.query.category;
+        //we set category to be a query parameter
     }
 
     FlashCardModel.find(modelParams, function (err, cards) {
